@@ -6,10 +6,13 @@ To run the webpage in your local computer:
 * Go to the cloned directoty
 * run `npm install`
 * run `node app.js`
+* Go to the browser: http://localhost:3000/
 
 To require weather information:
 * You can click anywhere in the map within the top right and bottom left boundaries to get weather information
 * You can also jump to a specific country to see its weather information by entering the Country Code
+
+![Main Page](https://github.com/alwaysnacy/weInfo/blob/mainpage.png "Main Page")
 
 Reference link:
 * OpenWeather API: https://openweathermap.org/
