@@ -1,7 +1,7 @@
 const TOKEN = 'pk.eyJ1IjoiYWx3YXlzbmFjeSIsImEiOiJja3EyNDhna2kwMGltMm9vOWs2MWoxbXh1In0.q64q2fm-Gs47J0VPYlomhQ'
 const tileUrl = `https://api.mapbox.com/styles/v1/alwaysnacy/tiles/{z}/{x}/{y}?access_token={${TOKEN}}`
 const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-let country = "vietnam"
+let country = "VN"
 //import wprldinfo from './worldinfo.js';
 let mydata;
 let info = {
@@ -46,7 +46,8 @@ countryForm.addEventListener('submit', function(e) {
 
 var marker = L.marker([90, 180]).addTo(mymap);
 var marker2 = L.marker([-90, -180]).addTo(mymap);
-marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+marker.bindPopup("<b>Hello!</b><br>This is the top right boundary.").openPopup();
+marker2.bindPopup("<b>Hello!</b><br>This is the bottom left boundary.").openPopup();
 
 async function onMapClick(e) {
     var popup = L.popup();
@@ -62,7 +63,7 @@ async function onMapClick(e) {
             console.log(data)
             popup
             .setLatLng(e.latlng)
-            .setContent(`You clicked the map at ${data.main.temp} ℃`)
+            .setContent(`This is <b>${data.name}</b><br> The temperature is <b>${data.main.temp} ℃ </b><br> Today is ${data.weather[0].main}`)
             .openOn(mymap);
         }).catch(e => {
             console.log(e)
