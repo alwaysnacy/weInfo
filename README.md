@@ -13,7 +13,7 @@ To require weather information:
 * You can also jump to a specific country to see its weather information by entering the Country Code
 
 
-![Main Page](mainpage.png "Main Page")
+![Main Page](mainpage1.png "Main Page")
 
 
 Reference link:
