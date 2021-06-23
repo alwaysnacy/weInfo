@@ -6,6 +6,8 @@ const axios = require('axios')
 const methodOverride = require('method-override')
 const OWM_KEY = "0e6aaaf70d0751c80e78751f4c53c371"
 const URL_OWM = `http://api.openweathermap.org/data/2.5/weather?appid=${OWM_KEY}&units=metric`
+const world = require('./public/worldinfo.json')
+const countries = world.map(e => e.country)
 
 app.engine('ejs', ejsMate);
 app.set('views', path.join(__dirname, 'views'))
@@ -15,7 +17,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(methodOverride('_method'))
 
 app.get('/', (req, res) => {
-    res.render('home')
+    res.render('home', {countries})
 })
 
 app.get('/map', (req, res) => {

@@ -15,31 +15,60 @@
         <style>
             #mapid {
                 height: 700px;
+                width: 100%;
+            }
+            .autocomplete-items div:hover {
+            /*when hovering an item:*/
+            background-color: #e9e9e9;
+            }
+                .autocomplete-active {
+                /*when navigating through the items using the arrow keys:*/
+                background-color: DodgerBlue !important;
+                color: #ffffff;
+            }
+
+            #datalistOptions {
+                visibility: hidden;
             }
         </style>
         <title>BOILERPLATEEE</title>
     </head>
-    <body class="d-flex flex-column vh-100">
+    <body class="d-flex flex-column vh-100 bg-dark">
         <main class="container mt-5">
-        <h1 class="text-center">Welcome to Weather Info</h1>
-        <p class="text-center">You can request for weather info of any place in the world</p>
-        <div class="row"></div>
-            <form class="col-6 offset-3" action="/" method="POST" id="countryForm">
+        <h1 class="text-center text-white">Welcome to <b class="text-warning">Weather Info</b></h1>
+        <p class="text-center text-white">You can request for weather info of any place in the world</p>
+        <div class="row">
+            <form class="col-5 offset-3" action="/" method="POST" id="countryForm" autocomplete="off">
                 <div class="input-group mb-3">
-                <input type="text" class="form-control" id="country" name="country" placeholder="Enter the country code">
+                <input list="datalistOptions" class="form-control custom-select custom-select-sm" id="country" name="country" placeholder="Enter country">
+                <datalist>
+                    <% for (let country of countries) {%>
+                    <option value="<%= country%>">
+                    <%}%>
+                </datalist>
                 <div class="input-group-append">
-                    <button class="btn btn-primary" type="submit">Info</button>
-                    </div>
+                    <button class="btn btn-warning" type="submit">Info</button>
+                </div>
                 </div>
             </form>
-        </div>
-        <div class="row">
-            <div id="mapid" class="my-3"></div>
+            <div class="dropdown col-2">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  Map Styles
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><a class="dropdown-item" id="streets-v11" onclick="setStyles(this.id)">Streets</a></li>
+                  <li><a class="dropdown-item" id="dark-v10" onclick="setStyles(this.id)">Dark</a></li>
+                  <li><a class="dropdown-item" id="satellite-streets-v11" onclick="setStyles(this.id)">Satellite</a></li>
+                </ul>
+            </div>
         </div>
         </main>
+        <div>
+            <div id="mapid" class="my-3"></div>
+        </div>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="map.js"></script>   
+    <script type="text/javascript" src="map.js"></script>
     </body>
 
 </html>
