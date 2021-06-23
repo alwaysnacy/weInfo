@@ -10,9 +10,9 @@ To run the webpage in your local computer:
 
 To require weather information:
 * You can click anywhere in the map within the top right and bottom left boundaries to get weather information
-* You can also jump to a specific country to see its weather information by entering the Country Code
+* You can also jump to a specific country to see its weather information by entering its name
 
-
+<br \>
 ![Main Page](mainpage1.png "Main Page")
 
 
