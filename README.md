@@ -12,6 +12,13 @@ To require weather information:
 * You can click anywhere in the map within the top right and bottom left boundaries to get weather information
 * You can also jump to a specific country to see its weather information by entering its name
 
+Change to other map styles by clicking the map styles button and select the options available:
+* Streets
+* Dark
+* Satellite
+* Satellite Streets
+* Navigation Night
+
 \
 ![Main Page](mainpage1.png "Main Page")
 
