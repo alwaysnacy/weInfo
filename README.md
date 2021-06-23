@@ -22,6 +22,9 @@ Change to other map styles by clicking the map styles button and select the opti
 \
 ![Main Page](mainpage1.png "Main Page")
 
+\
+![Main Page](weinfo.gif "Main Page")
+
 
 Reference link:
 * OpenWeather API: https://openweathermap.org/
