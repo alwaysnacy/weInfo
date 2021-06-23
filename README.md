@@ -19,7 +19,7 @@ Change to other map styles by clicking the map styles button and select the opti
 * Satellite Streets
 * Navigation Night
 
-\
+
 <p align="center">
   <img src="https://github.com/alwaysnacy/weinfo/blob/main/weinfo1.gif?raw=true" alt="Main Page"/>
 </p>
