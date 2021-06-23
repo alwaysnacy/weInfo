@@ -23,7 +23,7 @@ Change to other map styles by clicking the map styles button and select the opti
 ![Main Page](weinfo1.gif "Main Page")
 
 <p align="center">
-  <img src="https://github.com/alwaysnacy/weinfo/blob/master/weinfo1.gif?raw=true" alt="Main Page"/>
+  <img src="https://github.com/alwaysnacy/weinfo/blob/main/weinfo1.gif?raw=true" alt="Main Page"/>
 </p>
 
 Reference link:
