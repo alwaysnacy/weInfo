@@ -22,9 +22,21 @@
             }
         </style>
         <title>WEINFO</title>
+        <link rel="icon" href="weinfo-icon.png" type="image/x-icon">
     </head>
     <body class="d-flex flex-column vh-100 bg-dark">
-        <main class="container mt-5">
+    <nav class="navbar navbar-dark bg-dark d-flex flex-row-reverse me-4">
+    <div class="dropdown">
+        <button class="navbar-toggler" type="button" data-bs-toggle="dropdown" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="dropdown-menu bg-dark" style="right: 0; left: auto;" id="navbarToggleExternalContent">
+            <a class="dropdown-item text-white left" href='/'>Main Page</a>
+            <a class="dropdown-item text-white" href='/map'>Choropleth Map</a>
+        </div>
+    </div>
+    </nav>
+        <main class="container">
         <h1 class="text-center text-white">Welcome to <b class="text-warning">Weather Info</b></h1>
         <p class="text-center text-white">You can request for weather info of any place in the world</p>
         <div class="row">

@@ -14,25 +14,34 @@
         crossorigin=""></script>
         <style>
             #mapid {
-                height: 700px;
+                height: 900px;
+                width: 100%;
             }
         </style>
-        <title>CHOROPLETH US DENSITY MAP</title>
+        <title>
+            CHOROPLETH US DENSITY MAP
+        </title>
+        <link rel="icon" href="weinfo-icon.png" type="image/x-icon">
     </head>
     <body class="d-flex flex-column vh-100">
-        <main class="container mt-5">
-        <h1 class="text-center">Welcome to Weather Info</h1>
-        <p class="text-center">You can request for weather info of any city in the world</p>
-        <div class="row"></div>
-            <form class="col-6 offset-3" action="/" method="POST">
-                <div class="input-group mb-3">
-                <input type="text" class="form-control" id="city" name="city" placeholder="Enter the city">
-                <div class="input-group-append">
-                    <button class="btn btn-primary" type="submit">Info</button>
-                    </div>
+        <nav class="navbar navbar-light bg-light d-flex flex-row">
+            <a class="navbar-brand mx-5 mb-0 h1" href="#">
+                <img src="/weinfo-icon.png" alt="" width="34" height="30">
+                WeINFO
+            </a>
+            <div class="dropdown me-4">
+                <button class="navbar-toggler" type="button" data-bs-toggle="dropdown" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="dropdown-menu bg-dark" style="right: 0; left: auto;" id="navbarToggleExternalContent">
+                    <a class="dropdown-item text-white left" href='/'>Main Page</a>
+                    <a class="dropdown-item text-white" href='/map'>Choropleth Map</a>
                 </div>
-            </form>
-        </div>
+            </div>
+        </nav>
+        <main class="container mt-5">
+        <h1 class="text-center">Welcome to Map of US Population Density</h1>
+        <p class="text-center">You can request for weather info of any city in the world</p>
         <div class="row">
             <div id="mapid" class="my-3"></div>
         </div>
