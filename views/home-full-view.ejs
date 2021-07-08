@@ -16,6 +16,12 @@
             #mapid {
                 height: 100%;
                 width: 100%;
+                position: absolute;
+                top: 0; 
+                bottom: -200px; 
+                left: 0; 
+                right: 0; 
+                z-index: 0;
             }
             #datalistOptions {
                 visibility: hidden;
@@ -25,8 +31,8 @@
         <link rel="icon" href="weinfo-icon.png" type="image/x-icon">
     </head>
     <body class="d-flex flex-column vh-100 bg-dark" >
-    <nav class="navbar navbar-dark bg-dark d-flex flex-row-reverse me-4">
-    <div class="dropdown">
+    <nav class="navbar navbar-dark bg-transparent d-flex flex-row-reverse float-left" style="position: relative; z-index: 100; width: 100px">
+    <div class="dropdown me-4" >
         <button class="navbar-toggler bg-warning" type="button" data-bs-toggle="dropdown" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
         </button>
@@ -36,7 +42,7 @@
         </div>
     </div>
     </nav>
-        <main class="container" style="position: relative;">
+        <main class="container" style="position: relative; z-index: 100;">
         <h1 class="text-center text-white">Welcome to <b class="text-warning">Weather Info</b></h1>
         <p class="text-center text-white">You can request for weather info of any place in the world</p>
         <div class="row">
@@ -55,22 +61,22 @@
             </form>
             <div class="dropdown col-2">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-        Map Styles
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" id="streets-v11" onclick="setStyles(this.id)">Streets</a></li>
-        <li><a class="dropdown-item" id="dark-v10" onclick="setStyles(this.id)">Dark</a></li>
-        <li><a class="dropdown-item" id="satellite-v9" onclick="setStyles(this.id)">Satellite</a></li>
-        <li><a class="dropdown-item" id="satellite-streets-v11" onclick="setStyles(this.id)">Satellite Streets</a></li>
-        <li><a class="dropdown-item" id="navigation-night-v1" onclick="setStyles(this.id)">Navigation Night</a></li>
+                  Map Styles
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><a class="dropdown-item" id="streets-v11" onclick="setStyles(this.id)">Streets</a></li>
+                  <li><a class="dropdown-item" id="dark-v10" onclick="setStyles(this.id)">Dark</a></li>
+                  <li><a class="dropdown-item" id="satellite-v9" onclick="setStyles(this.id)">Satellite</a></li>
+                  <li><a class="dropdown-item" id="satellite-streets-v11" onclick="setStyles(this.id)">Satellite Streets</a></li>
+                  <li><a class="dropdown-item" id="navigation-night-v1" onclick="setStyles(this.id)">Navigation Night</a></li>
                 </ul>
             </div>
         </div>
         </main>
-        <div id="mapid" class="my-3"></div>
+        <div id="mapid"></div>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="js/map.js"></script>
+    <script type="text/javascript" src="map.js"></script>
     </body>
 
 </html>

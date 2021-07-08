@@ -10,18 +10,17 @@ let info = {
     Longtiude: 0
 };
 
-fetch("./worldinfo.json")
+fetch("../data/worldinfo.json")
 .then(response => {
    return response.json();
 })
 .then(data => {
-    console.log(data[1]);
     mydata = data;
 });
 
 let mapStyles = 'satellite-streets-v11';
 
-const mymap = L.map('mapid').setView([-5, 20], 2);
+const mymap = L.map('mapid').setView([-5, 20], 4);
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
@@ -60,14 +59,14 @@ async function onMapClick(e) {
             popup
             .setLatLng(e.latlng)
             .setContent(`<p>This is <b>${data.name}</b><br> The temperature is <b>${data.main.temp} ℃ </b><br> Today is ${data.weather[0].main}<br>
-            <a class="click" href="/map">details</a></p>`)
+            <form method="GET" action="/${data.coord.lat}/${data.coord.lon}"><button class="click" type="submit">Details</button></form>`)
             .openOn(mymap)
             .on('click', async function () {
                 console.log("HI")
             });
             
         }).catch(e => {
-            console.log(e)
+            console.log('FETCH ERROR')
         })
 }
 

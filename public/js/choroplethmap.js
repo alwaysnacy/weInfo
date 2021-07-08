@@ -15,6 +15,34 @@ const TOKEN = 'pk.eyJ1IjoiYWx3YXlzbmFjeSIsImEiOiJja3EyNDhna2kwMGltMm9vOWs2MWoxbX
 const mymap = L.map('mapid').setView([37.8, -96], 5);
 const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 
+// mymap.on('load', function() {
+
+//     // Add source for admin-1 Boundaries
+//     mymap.addSource('admin-1', {
+//       type: 'vector',
+//       url: 'mapbox://mapbox.boundaries-adm1-v3'
+//     });
+  
+//     // Add a layer with boundary polygons
+//     mymap.addLayer(
+//       {
+//         id: 'admin-1-fill',
+//         type: 'fill',
+//         source: 'admin-1',
+//         'source-layer': 'boundaries_admin_1',
+//         paint: {
+//           'fill-color': '#CCCCCC'
+//         }
+//       },
+//       // This final argument indicates that we want to add the Boundaries layer
+//       // before the `waterway-label` layer that is in the map from the Mapbox
+//       // Light style. This ensures the admin polygons will be rendered on top of
+//       // the
+//       'waterway-label'
+//     );
+//   });
+
+
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
@@ -55,6 +83,7 @@ function style(feature) {
         fillOpacity: 0.7
     };                
 }
+
 L.geoJson(statesData, {style: style}).addTo(mymap);
 
 function highlightFeature(e) {
@@ -75,8 +104,8 @@ info.update(layer.feature.properties);
 
 var geojson;
 function resetHighlight(e) {
-geojson.resetStyle(e.target);
-info.update();
+ geojson.resetStyle(e.target);
+ info.update();
 }
 
 function zoomToFeature(e) {

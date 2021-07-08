@@ -5,23 +5,124 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- CSS only -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-        crossorigin=""/>
-        <!-- Make sure you put this AFTER Leaflet's CSS -->
-        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-        crossorigin=""></script>
-        <link rel="stylesheet" href="../map.css">
-        <title>BOILERPLATEEE</title>
+        <link rel="stylesheet" href="/css/styles.css">
+        <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+        <script>
+            const forecastData = <%- JSON.stringify(placeData) %>
+        </script>
+        <title>Show Page</title>
     </head>
-    <body class="d-flex flex-column vh-100">
-        <h1> <%= data.main.temp %></h1>
-        <div id="mapid"></div>
+    <body class="d-flex flex-column vh-100 m-0 justify-content-between"
+        style="background:url('https://source.unsplash.com/random/1600x800?natural');background-size:cover;">
+        <div class="container vh-100">
+    
+            <div class="currnent-info row justify-content-between d-flex">
+                <div class="date-container col-3 text-center">
+                    <div class="time" id="time">
+                        12:30 <span id="am-pm">PM</span>
+                    </div>
+                    <div class="date" id="date">
+                        Monday, 24 May
+                    </div>
+                </div>
+                <div class="place-container col-3 offset-6">
+                    <div class="time-zone" id="time-zone">
+                        <%= placeData.timezone %>
+                    </div>
+                    <div id="country" class="country">
+                        <p>
+                            <%= placeData.lat %>
+                                <%= placeData.lon %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="current-info row">
+                <div class="others col-3 p-3 my-5 d-flex flex-column" id="current-weather-items">
+                    <div class="weather-item">
+                        <div>Humidity</div>
+                        <div>
+                            <%=placeData.current.humidity%>%
+                        </div>
+                    </div>
+                    <div class="weather-item">
+                        <div>Pressure</div>
+                        <div>
+                            <%=placeData.current.pressure%>
+                        </div>
+                    </div>
+                    <div class="weather-item">
+                        <div>Wind Speed</div>
+                        <div>
+                            <%=placeData.current.wind_speed%>
+                        </div>
+                    </div>
+                    <div class="weather-item">
+                        <div>Sunrise</div>
+                        <div id="sunrise">
+                            <%=placeData.current.sunrise%>
+                        </div>
+                    </div>
+                    <div class="weather-item">
+                        <div>Sunset</div>
+                        <div id="sunset">
+                            <%=placeData.current.sunset%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="zingChart ps-0 col-8 offset-4">
+                    <div id="myChart"></div>
+                </div>
+                
+            </div>
+        </div>
+    
+        <div class="container future-temp">
+    
+            <div class="future-forecast row d-flex p-4">
+    
+    
+    
+                <div class="today col-3 d-flex align-items-center justify-content-center" id="current-temp">
+                    <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                    <div class="other m-1">
+                        <div class="day mb-4" id="date-moment">
+                            <%= placeData.daily[0].dt %>
+                        </div>
+                        <div class="temp">Night - <%= placeData.daily[0].temp.night %>&#176; C</div>
+                        <div class="temp">Day - <%= placeData.daily[0].temp.day %>&#176; C</div>
+                    </div>
+                </div>
+                <div class="weather-forecast col-9 d-flex justify-content-around pe-0 wrap" id="weather-forecast">
+    
+                    <% placeData.daily.forEach(function(d, idx) { if (idx !=0) {%>
+                        <div class="weather-forecast-item">
+                            <div class="day" id="forecast-moment">
+                                <%= d.dt %>
+                            </div>
+                            <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                            <div class="temp">Night - <%= d.temp.night %>&#176; C</div>
+                            <div class="temp">Day - <%= d.temp.day %>&#176; C</div>
+                        </div>
+                        <% }}) %>
+    
+                </div>
+            </div>
+        </div>
 
         <!-- JavaScript Bundle with Popper -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<script src="/js/chartConfig.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+    integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/js/showDateTime.js"></script>
 
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+            crossorigin="anonymous"></script>
     </body>
-
 </html>
