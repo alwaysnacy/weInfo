@@ -118,7 +118,7 @@ let myConfig = {
 
 zingchart.render({
   id: 'myChart',
-  height: "500",
+  height: "400",
   data: myConfig,
   defaults: myTheme, // Path to my_theme.txt
   backgroundColor: "transparent"

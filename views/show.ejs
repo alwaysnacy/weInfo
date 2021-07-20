@@ -15,8 +15,7 @@
     <body class="d-flex flex-column vh-100 m-0 justify-content-between"
         style="background:url('https://source.unsplash.com/random/1600x800?natural');background-size:cover;">
         <div class="container vh-100">
-    
-            <div class="currnent-info row justify-content-between d-flex">
+            <div class="current-info row justify-content-between d-flex">
                 <div class="date-container col-3 text-center">
                     <div class="time" id="time">
                         12:30 <span id="am-pm">PM</span>
@@ -38,8 +37,8 @@
                 </div>
             </div>
     
-            <div class="current-info row">
-                <div class="others col-3 p-3 my-5 d-flex flex-column" id="current-weather-items">
+            <div class="current-info row mt-5 mb-3">
+                <div class="others col-3 p-3 d-flex flex-column" style="height: 50%" id="current-weather-items">
                     <div class="weather-item">
                         <div>Humidity</div>
                         <div>
@@ -71,21 +70,13 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="zingChart ps-0 col-8 offset-4">
+                <div class="zingChart ps-0 col-8 offset-1">
                     <div id="myChart"></div>
                 </div>
-                
             </div>
-        </div>
-    
-        <div class="container future-temp">
-    
-            <div class="future-forecast row d-flex p-4">
-    
-    
-    
+
+
+            <div class="future-forecast row d-flex justify-content-between p-3 ps-4">
                 <div class="today col-3 d-flex align-items-center justify-content-center" id="current-temp">
                     <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
                     <div class="other m-1">
@@ -98,7 +89,7 @@
                 </div>
                 <div class="weather-forecast col-9 d-flex justify-content-around pe-0 wrap" id="weather-forecast">
     
-                    <% placeData.daily.forEach(function(d, idx) { if (idx !=0) {%>
+                    <% placeData.daily.forEach(function(d, idx) { if (idx !=0 && idx <7) {%>
                         <div class="weather-forecast-item">
                             <div class="day" id="forecast-moment">
                                 <%= d.dt %>
@@ -112,13 +103,19 @@
                 </div>
             </div>
         </div>
+    
+        <!-- <div class="container future-temp">
+    
+ 
+            </div>
+        </div> -->
 
         <!-- JavaScript Bundle with Popper -->
-<script src="/js/chartConfig.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
-    integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="/js/showDateTime.js"></script>
+        <script src="/js/chartConfig.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+            integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="/js/showDateTime.js"></script>
 
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
